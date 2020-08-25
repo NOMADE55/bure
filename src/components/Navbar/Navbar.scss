@@ -1,17 +1,16 @@
 @import 'src/assets/scss/mixins.scss';
 
 .navbar {
-    $border-top: 10px;
     padding: 1rem;
+    padding-top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: $border-top solid $primary;
     .avatar {
         $avatar-size: 150px;
         height: $avatar-size;
         width: $avatar-size;
-        margin-top: ($avatar-size / 2 * -1) - ($border-top * 2);
+        margin-top: ($avatar-size / 2 * -1);
         @include defaultBorderRadius();
         img {
             object-fit: cover;
@@ -32,7 +31,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: $primary;
+            background-color: $secondary;
             color: #fff;
             @include defaultBorderRadius();
             .icon {
@@ -40,7 +39,7 @@
                 width: $icon-size;
             }
             &:hover {
-                background-color: lighten($primary, 10);
+                background-color: lighten($secondary, 10);
                 .icon {
                     transform: scale(1.1);
                 }

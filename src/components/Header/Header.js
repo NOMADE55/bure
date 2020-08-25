@@ -4,7 +4,7 @@ import './Header.scss';
 
 function Header() {
     return (
-        <header>
+        <header className="header">
             <div className="full-img">
                 <img src="https://source.unsplash.com/1200x300/?food,fire" alt=""/>
             </div>

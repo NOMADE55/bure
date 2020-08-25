@@ -1,8 +1,15 @@
 @import 'src/assets/scss/variables.scss';
 
-header {
+header.header {
+    position: sticky;
+    padding-bottom: 1rem;
+    border-radius: $br;
+    background-color: lighten($primary, 10);
     .full-img {
+        margin-left: -2rem;
+        margin-right: -2rem;
         overflow: hidden;
+        border-radius: 0 0 $br $br;
         height: 190px;
         img {
             object-fit: cover;
@@ -10,6 +17,7 @@ header {
             height: 100%;
         }
     }
+
     .store-data {
         padding: 0 1rem;
         h1 {
@@ -20,7 +28,7 @@ header {
         .lead {
             font-size: 1.25rem;
             line-height: 1.4;
-            opacity: 0.5;
+            color: darken($primary, 40);
             margin-bottom: 1rem;
             b {
                 font-weight: 700;
@@ -46,10 +54,9 @@ header {
             position: relative;
             vertical-align: top;
             outline: 0;
-            background-color: #fff;
-            border-color: #dbdbdb;
+            background-color: rgba(255,255,255,.8);
+            border-color: rgba(0,0,0,.1);
             color: $dark;
         }
     }
-
 }
