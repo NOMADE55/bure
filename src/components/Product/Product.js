@@ -4,10 +4,11 @@ function Product({
     name = "",
     price = 0,
     featured = false,
-    className = ""
+    className = "",
+    skeleton = false
 }) {
     return (
-        <article className={`product ${className}${featured ? ' featured' : ''}`}>
+        <article className={`product ${className}${featured ? ' featured' : ''}${skeleton ? ' is-skeleton' : ''}`}>
             <div className="data">
                 <h3 className="name">{name}</h3>
                 <div className="price">${price.toFixed(2)}</div>
