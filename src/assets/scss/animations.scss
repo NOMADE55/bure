@@ -2,3 +2,8 @@
     from { left: -150px; }
     to { left: 100%; }
 }
+
+@keyframes rightSideHide {
+    from {transform: translateX(100%); }
+    to {transform: translateX(0); }
+}
