@@ -6,7 +6,7 @@ function Header() {
     return (
         <header className="header">
             <div className="full-img">
-                <img src="https://source.unsplash.com/1200x300/?food,fire" alt=""/>
+                <img src="https://placehold.it/1200x300/abcd12" alt=""/>
             </div>
             <Navbar />
             <div className="store-data">

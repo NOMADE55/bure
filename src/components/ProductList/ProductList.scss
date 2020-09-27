@@ -1,0 +1,7 @@
+@import 'src/assets/scss/abstracts/mixins.scss';
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($product-height * 1.75, 1fr));
+    gap: 1rem;
+}
