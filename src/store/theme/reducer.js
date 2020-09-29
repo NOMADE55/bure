@@ -4,10 +4,11 @@ import { TOGGLE_DARK_THEME } from './actions';
 export default (state = initialState, { type, payload = {} }) => {
 	switch (type) {
 		case TOGGLE_DARK_THEME:
-			console.log("darkTheme", !state.darkTheme);
+			const newValue = !state.darkTheme;
+			localStorage.setItem('darkTheme', newValue);
 			return {
 				...state,
-				darkTheme: !state.darkTheme
+				darkTheme: newValue
 			}
 		default:
 			return state

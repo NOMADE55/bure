@@ -1,4 +1,5 @@
 @import 'src/assets/scss/abstracts/variables.scss';
+@import 'src/assets/scss/abstracts/mixins.scss';
 
 .item-product {
     $product-borders: 1px solid $grey-light;
@@ -9,9 +10,11 @@
     max-width: 650px;
     display: flex;
     flex-direction: column;
-    background: #fff;
+    color: $dark;
+    background-color: $light;
     border-left: $product-borders;
     animation: rightSideHide 400ms ease-in-out 1 both;
+
     .item {
         &-details {
             padding: 2rem;
@@ -28,6 +31,7 @@
                 height: 100%;
                 object-fit: cover;
             }
+
         }
         &-footer {
             margin-top: auto;
@@ -68,7 +72,7 @@
                         align-items: center;
                         border-radius: 0;
                         border: $border;
-                        color: #fff;
+                        color: $light;
                         background-color: $main-color;
                         cursor: pointer;
                         &:hover {
@@ -88,6 +92,20 @@
                     }
                     > *:focus {
                         outline: none;
+                    }
+                    @include atDarkTheme {
+                        $main-color: lighten($main-color, 2);
+                        $border: 1px solid $main-color;
+                        input {
+                            background-color: lighten($dark, 6);
+                            color: $light;
+                            border-top: $border;
+                            border-bottom: $border;
+                        }
+                        .button {
+                            background-color: $main-color;
+                            border: $border;
+                        }
                     }
                 }
                 .add-to-cart {
@@ -129,6 +147,15 @@
             svg {
                 display: block;
             }
+        }
+    }
+
+    @include atDarkTheme {
+        color: $light;
+        background-color: $dark;
+        border-color: $grey-dark;
+        .item-image, .item-footer{
+            border-color: $grey-dark;
         }
     }
 }

@@ -1,5 +1,5 @@
 export const initialState = {
-    darkTheme: false
+    darkTheme: JSON.parse(localStorage.getItem('darkTheme')) || false
 }
 
-export const getDarkTheme = (state = initialState) => state.darkTheme || initialState.darkTheme;
+export const getDarkTheme = (state = initialState) => JSON.parse(state.darkTheme);

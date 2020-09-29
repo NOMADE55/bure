@@ -1,0 +1,26 @@
+@import 'src/assets/scss/abstracts/variables.scss';
+@import 'src/assets/scss/abstracts/mixins.scss';
+
+.theme-toggler {
+    position: fixed;
+    left: 1rem;
+    bottom: 1rem;
+    color: $light;
+    background-color: $dark;
+    padding: .35rem;
+    border-radius: 100%;
+    cursor: pointer;
+    svg {
+        display: block;
+    }
+    @include atDarkTheme {
+        color: $dark;
+        background-color: $light;
+        &:hover {
+            background-color: darken($light, 8);
+        }
+    }
+    &:hover {
+        background-color: lighten($dark, 4);
+    }
+}

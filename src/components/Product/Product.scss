@@ -11,6 +11,7 @@
     transition: 150ms ease-in;
     text-decoration: none;
     color: inherit;
+    background-color: $light;
     .data {
         padding: 1rem;
         display: flex;
@@ -36,7 +37,8 @@
         }
     }
     &:hover {
-        box-shadow: 0 3px 6px rgba(0,0,0,.08);
+        box-shadow: 0 3px 6px rgba($dark, .08);
+
         img {
             transform: scale(1.1);
         }
@@ -62,6 +64,14 @@
             img {
                 display: none;
             }
+        }
+    }
+
+    @include atDarkTheme {
+        background-color: lighten($dark, 3);
+        border-color: lighten($dark, 3);
+        &:hover {
+            box-shadow: 0 3px 6px rgba($light, .08);
         }
     }
 }
