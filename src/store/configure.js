@@ -6,6 +6,8 @@ import middlewares from './middlewares';
 import reducer from './reducer';
 import sagas from './sagas';
 
+console.log(process.env);
+
 const devtools = process.env.NODE_ENV && process.env.APP_ENV === "browser" && window.devToolsExtension
   ? window.devToolsExtension
   : () => (fn) => fn
