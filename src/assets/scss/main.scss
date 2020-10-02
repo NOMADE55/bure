@@ -1,7 +1,15 @@
-@import 'abstracts/variables';
-@import 'animations.scss';
 @import 'reset-css';
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap');
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/functions';
+@import 'animations';
+@import 'components/navigation';
+@import 'components/buttons';
+
+* {
+    box-sizing: border-box;
+}
 
 body {
     font-family: "Work Sans", 'Helvetica', 'Arial', sans-serif;

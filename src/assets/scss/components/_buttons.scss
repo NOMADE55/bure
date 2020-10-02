@@ -1,0 +1,61 @@
+.button {
+    $btn-color: $grey-lighter;
+    border-radius: $br;
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid $btn-color;
+    background-color: $btn-color;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    svg {
+        vertical-align: text-top;
+        display: inline-block;
+        max-width: 1rem;
+        max-height: 1rem;
+    }
+    &:hover {
+        border-color: lighten($btn-color, 5);
+        background-color: lighten($btn-color, 5);
+    }
+    &:active, &:focus {
+        border-color: darken($btn-color, 5);
+        background-color: darken($btn-color, 5);
+        outline: none;
+    }
+
+    &.is-outline {
+        background-color: transparent;
+        color: $btn-color;
+    }
+
+    @each $name, $color in $colors-map {
+        $color-invert: findColorInvert($color);
+        &.is-#{$name} {
+            color: $color-invert;
+            background-color: $color;
+            border-color: $color;
+            &:hover {
+                border-color: lighten($color, 5);
+                background-color: lighten($color, 5);
+            }
+            &:active, &:focus {
+                border-color: darken($color, 5);
+                background-color: darken($color, 5);
+            }
+            &.is-outline {
+                background-color: transparent;
+                color: $color;
+                &:hover {
+                    background-color: $color;
+                    color: $color-invert;
+                }
+            }
+        }
+    }
+    &[disabled], &.is-disabled {
+        opacity: .6;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+}

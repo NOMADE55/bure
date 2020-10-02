@@ -1,0 +1,28 @@
+.fixed-navigation {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    display: flex;
+    flex-direction: column;
+    > .button {
+        $size: 53px;
+        height: $size;
+        width: $size;
+        position: relative;
+        padding: .35rem;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #eee;
+        cursor: pointer;
+        svg {
+            max-width: 2rem;
+            max-height: 2rem;
+            display: block;
+        }
+    }
+    > .button + .button {
+        margin-top: 1rem;
+    }
+}

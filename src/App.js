@@ -25,7 +25,9 @@ function App() {
 					</Switch>
 				</div>
 			</BrowserRouter>
-			<ThemeToggler />
+			<div className="fixed-navigation">
+				<ThemeToggler />
+			</div>
 		</main>
 	);
 }
