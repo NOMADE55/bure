@@ -9,6 +9,7 @@ import ItemDetailContainer from '@components/ItemDetailContainer';
 import { fromTheme } from '@store/selectors';
 import { useSelector } from 'react-redux';
 import ThemeToggler from '@components/ThemeToggler';
+import { Cart } from '@components/Cart';
 
 function App() {
 	const isItDark = useSelector(fromTheme.getDarkTheme);
@@ -26,6 +27,7 @@ function App() {
 				</div>
 			</BrowserRouter>
 			<div className="fixed-navigation">
+				<Cart />
 				<ThemeToggler />
 			</div>
 		</main>
