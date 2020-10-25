@@ -16,15 +16,15 @@ function App() {
 	return (
 		<main className={`${ isItDark ? 'dark' : ''}`}>
 			<BrowserRouter>
-				<div className="container">
-					<Header />
-					<CategorySelector />
-					<CategoryList />
-					<Footer />
-					<Switch>
-						<Route path="/product/:id" exact component={ItemDetailContainer} />
-					</Switch>
-				</div>
+				<Route path={["/product/:id?", "/"]}>
+					<div className="container">
+						<Header />
+						<CategorySelector />
+						<CategoryList />
+						<Footer />
+						<ItemDetailContainer />
+					</div>
+				</Route>
 			</BrowserRouter>
 			<div className="fixed-navigation">
 				<Cart />

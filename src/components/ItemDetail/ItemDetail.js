@@ -12,11 +12,12 @@ function ItemDetail({
     name = "",
     price = {},
     skeleton = true,
-    description = ""
+    description = "",
+    isOpen = false
 }) {
     const [itemQuantity, setItemQuantity] = useState(1);
     return (
-        <article className="item-product">
+        <article className={`item-product ${isOpen ? 'is-active' : ''}`} tabIndex="-1">
             <Link to="/" className="item-close">
                 <Icon path={mdiClose} size="2rem" />
             </Link>

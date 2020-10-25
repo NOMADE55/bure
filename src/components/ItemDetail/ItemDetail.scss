@@ -7,14 +7,23 @@
     right: 0;
     top: 0;
     bottom: 0;
-    max-width: 650px;
+    left: 0;
+    width: 650px;
+    height: 650px;
+    margin: auto;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     color: $dark;
     background-color: $light;
-    border-left: $product-borders;
-    animation: rightSideHide 400ms ease-in-out 1 both;
-
+    border: $product-borders;
+    border-radius: $br;
+    overflow: hidden;
+    transition: 350ms ease-in;
+    transform: translateY(40px);
+    opacity: 0;
+    z-index: -1;
+    outline: 0;
     .item {
         &-details {
             padding: 2rem;
@@ -149,7 +158,11 @@
             }
         }
     }
-
+    &.is-active {
+        opacity: 1;
+        transform: translateY(0);
+        z-index: 300;
+    }
     @include atDarkTheme {
         color: $light;
         background-color: $dark;
