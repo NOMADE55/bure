@@ -9,7 +9,6 @@ import './ThemeToggler.scss';
 
 function ThemeToggler() {
     const isItDark = useSelector(fromTheme.getDarkTheme);
-    console.log("isItDark -> ", isItDark);
     const dispatch = useDispatch();
     return (
         <div className="button theme-toggler is-dark" onClick={() => dispatch(toggleDarkTheme())}>

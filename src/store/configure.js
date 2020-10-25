@@ -8,9 +8,9 @@ import sagas from './sagas';
 
 console.log(process.env);
 
-const devtools = process.env.NODE_ENV && process.env.APP_ENV === "browser" && window.devToolsExtension
+const devtools = window.devToolsExtension && process.env.NODE_ENV == "development"
   ? window.devToolsExtension
-  : () => (fn) => fn
+  : () => (fn) => fn;
 
 const configureStore = (initialState, services = {}) => {
   const sagaMiddleware = createSagaMiddleware()
