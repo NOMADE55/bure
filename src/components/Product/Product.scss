@@ -1,77 +1,87 @@
 @import 'src/assets/scss/abstracts/variables.scss';
 @import 'src/assets/scss/abstracts/mixins.scss';
 
-.product {
-    cursor: pointer;
-    border: 1px solid #e4e4e4;
-    border-radius: $br;
+.product-list {
     display: grid;
-    grid-template-columns: auto $product-height;
-    overflow: hidden;
-    transition: 150ms ease-in;
-    text-decoration: none;
-    color: inherit;
-    background-color: $light;
-    .data {
-        padding: 1rem;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-        .name {
-            $name-font-size: 1.4rem;
-            $name-line-height: 1.4;
-            min-height: $name-font-size * $name-line-height;
-            line-height: 1.4;
-            font-size: 1.4rem;
-            font-weight: 600;
-        }
-    }
-    .img-wrapper {
-        height: $product-height;
-        overflow: hidden;
-        img {
-            object-position: center;
-            object-fit: cover;
-            height: 100%;
-            width: 100%;
-        }
-    }
-    &:hover {
-        box-shadow: 0 3px 6px rgba($dark, .08);
+    grid-template-columns: repeat(auto-fit, minmax(auto, 310px));
+    gap: 1rem;
 
-        img {
-            transform: scale(1.1);
-        }
-    }
-    &.is-skeleton {
-        $color: rgba($dark, .2);
-        pointer-events: none;
-        cursor: default;
-        .price {
-            color: transparent;
-            background-color: $color;
-            @include pseudoSkeleton($color);
-        }
+    .product {
+        cursor: pointer;
+        border: 1px solid #e4e4e4;
+        border-radius: $br;
+        display: grid;
+        grid-template-columns: auto $product-height;
+        overflow: hidden;
+        // transition: 150ms ease-in;
+        text-decoration: none;
+        color: inherit;
+        background-color: $light;
         .data {
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            background-color: #fff;
             .name {
-                background-color: $color;
-                @include pseudoSkeleton($color);
+                $name-font-size: 1.4rem;
+                $name-line-height: 1.4;
+                min-height: $name-font-size * $name-line-height;
+                line-height: 1.2;
+                font-size: 1.4rem;
+                font-weight: 600;
             }
         }
         .img-wrapper {
-            background-color: $color;
-            @include pseudoSkeleton($color);
+            height: $product-height;
+            overflow: hidden;
             img {
-                display: none;
+                object-position: center;
+                object-fit: cover;
+                height: 100%;
+                width: 100%;
             }
         }
-    }
-
-    @include atDarkTheme {
-        background-color: lighten($dark, 3);
-        border-color: lighten($dark, 3);
         &:hover {
-            box-shadow: 0 3px 6px rgba($light, .08);
+            box-shadow: 0 3px 6px rgba($dark, .08);
+
+            img {
+                transform: scale(1.1);
+            }
+        }
+        &.is-skeleton {
+            $color: rgba($dark, .2);
+            pointer-events: none;
+            cursor: default;
+            .price {
+                color: transparent;
+                background-color: $color;
+                @include pseudoSkeleton($color);
+            }
+            .data {
+                .name {
+                    background-color: $color;
+                    @include pseudoSkeleton($color);
+                }
+            }
+            .img-wrapper {
+                background-color: $color;
+                @include pseudoSkeleton($color);
+                img {
+                    display: none;
+                }
+            }
+        }
+
+        @include atDarkTheme {
+            background-color: lighten($dark, 3);
+            border-color: lighten($dark, 3);
+            .data {
+                background-color: darken($dark, 3);
+            }
+            &:hover {
+                box-shadow: 0 3px 6px rgba($light, .08);
+            }
         }
     }
 }

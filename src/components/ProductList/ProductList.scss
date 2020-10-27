@@ -1,7 +1,0 @@
-@import 'src/assets/scss/abstracts/mixins.scss';
-
-.product-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(auto, 310px));
-    gap: 1rem;
-}

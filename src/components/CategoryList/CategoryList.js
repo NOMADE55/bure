@@ -1,29 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./CategoryList.scss";
-import { categories as mockedCategories } from 'src/mock.js'
-import ProductList from '@components/ProductList';
+import { FIRESTORE as db } from 'src/firebase.js';
+import Category from '@components/Category';
 
 function CategoryList() {
-    const placeholderArray = Array(4).fill([]);
-    const [categories, setCategories ] = useState(placeholderArray);
-    const [loading, setLoading ] = useState(true);
-    const fetchCategories = new Promise((res, rej) => {
-        setTimeout(() => res(mockedCategories), 10000);
-    })
-    .then(data => setCategories(data))
-    .catch(error => console.error(error))
-    .finally(data => setLoading(false));
+    const [ categories, setCategories ] = useState([]);
+    const [ loading, setLoading ] = useState(true);
+
+    useEffect(() => {
+        setLoading(true);
+        db.collection('categories')
+            .get()
+            .then(querySnapshot => {
+                if(querySnapshot.size === 0) return setCategories([]);
+                const fetchedCategories = [];
+                querySnapshot.docs.map(doc => {
+                    fetchedCategories.push({ id: doc.id, ...doc.data(), doc: doc });
+                });
+                setLoading(false);
+                return setCategories(fetchedCategories);
+            });
+    }, [])
 
     return (
-        <section className={`category-list`}>
-            {
-                categories.map((category, i) => (
-                    <div key={category.id || i} className={`category ${loading ? 'is-skeleton' : ''}`}>
-                        <h2 id={category.id}>{category.name}</h2>
-                        <ProductList items={category.items} skeleton={loading} />
-                    </div>
-                ))
-            }
+        <section className="category-list">
+            { categories.map((category, i) => <Category key={category.id || i } {...category} />) }
         </section>
     );
 }
