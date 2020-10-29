@@ -171,4 +171,22 @@
             border-color: $grey-dark;
         }
     }
+    &.is-loading {
+        .item-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .icon-loading {
+                opacity: 0.6;
+            }
+            img {
+                opacity: 0;
+            }
+        }
+        .item-details {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
 }

@@ -5,7 +5,7 @@ import { products } from 'src/mock.js';
 import ItemDetail from '@components/ItemDetail';
 import { connect, useDispatch } from 'react-redux';
 import { fromDetail } from '@store/selectors';
-import { openItemDetail, closeItemDetail } from '@store/actions';
+import { openItemDetail, closeItemDetail, fetchItemDetail } from '@store/actions';
 import { useHistory } from 'react-router-dom';
 
 function ItemDetailContainer(props) {
@@ -15,13 +15,11 @@ function ItemDetailContainer(props) {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log("test");
         if(id) {
             dispatch(openItemDetail());
-            document.querySelector('body').style.overflow = "hidden";
+            dispatch(fetchItemDetail(id));
         } else {
             dispatch(closeItemDetail());
-            document.querySelector('body').style.overflow = "";
         }
     }, [id]);
 
@@ -34,7 +32,9 @@ function ItemDetailContainer(props) {
 }
 
 const mapStateToProps = state => ({
-    "isOpen": fromDetail.isOpen(state)
+    "isOpen": fromDetail.isOpen(state),
+    "loading": fromDetail.isLoading(state),
+    ...fromDetail.product(state)
 });
 
 export default connect(mapStateToProps)(ItemDetailContainer);
